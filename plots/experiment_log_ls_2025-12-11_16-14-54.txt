@@ -1,0 +1,88 @@
+========================================
+SI PARTIAL OBSERVABILITY EXPERIMENT LOG
+========================================
+Timestamp: 2025-12-11_16-14-54
+Initialization Mode: ls
+
+--- EXPERIMENT PARAMETERS ---
+N_obs: 5
+N_hidden: 2
+N_total: 7
+N_process: 10
+K (latent rank): 2
+beta: 1.000
+del_t: 0.0100
+T_end: 5.0
+max_iter: 200
+tolerance: 1.0e-03
+method: abs
+
+--- CONVERGENCE ANALYSIS ---
+Total iterations completed: 89
+Final objective value: 2.657120e-03
+Initial objective value: 1.369022e-02
+Objective reduction: 1.103309e-02
+
+--- PARAMETER CHANGE TRACKING ---
+Final dA (A parameter change): 8.824080e-02
+Final dW (W parameter change): 3.675439e-01
+Final dZ (Z parameter change): 2.896721e-03
+Average dA over iterations: 1.584593e-01
+Average dW over iterations: 4.149313e-01
+Average dZ over iterations: 2.496388e-02
+Std dA over iterations: 5.855704e-02
+Std dW over iterations: 4.315482e-02
+Std dZ over iterations: 9.249661e-02
+
+--- RECONSTRUCTION ERRORS ---
+A_oo Frobenius Error (%): 8.8241
+W Frobenius Error (%): 36.7544
+A_oo Absolute Error: 0.223683
+W Absolute Error: 0.580876
+A_oo True Norm: 2.534916
+W True Norm: 1.580426
+
+--- MATRIX DETAILS ---
+True A_oo matrix:
+  0.0000   0.0993   0.1351   0.3359   0.7610 
+  0.0993   0.0000   0.0928   0.9911   0.1628 
+  0.1351   0.0928   0.0000   0.9869   0.7071 
+  0.3359   0.9911   0.9869   0.0000   0.0367 
+  0.7610   0.1628   0.7071   0.0367   0.0000 
+
+Estimated A_oo matrix:
+  0.0000   0.1270   0.1240   0.3384   0.8205 
+  0.1270   0.0000   0.1562   1.0107   0.1670 
+  0.1240   0.1562   0.0000   1.0015   0.8291 
+  0.3384   1.0107   1.0015   0.0000   0.0694 
+  0.8205   0.1670   0.8291   0.0694   0.0000 
+
+True W matrix:
+  0.5168   0.0863 
+  0.2731   0.3406 
+  1.0000   0.5811 
+  0.3287   0.1923 
+  0.3538   0.6518 
+
+Estimated W matrix:
+  0.2885   0.2026 
+  0.3014   0.1593 
+  0.7991   0.4977 
+  0.2625   0.1595 
+  0.4889   0.2431 
+
+--- Z ANALYSIS (AVERAGED ACROSS PROCESSES) ---
+Z is estimated per time point and process
+Z dimensions: 2 x 5000 (K x total_time_points)
+Z mean across all time points: 0.785060
+Z std across all time points: 0.428223
+Z min value: -0.157177
+Z max value: 1.306990
+Z change tracking shows parameter updates between EM iterations
+This measures ||Z_new - Z_old||_F / ||Z_old||_F between iterations
+
+--- CONVERGENCE DETAILS ---
+Objective slope (last 5 iters): -5.721665e-07
+dA final/initial ratio: 0.283323
+dW final/initial ratio: 0.692616
+dZ final/initial ratio: 0.115998
