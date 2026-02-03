@@ -1,5 +1,5 @@
 function [A_hat, W_hat, Z_hat, hist] = PO_model1( ...
-    X_obs, beta, del_t, K, max_iter, tol, method, A_full_true, initfcon_mode)
+    X_obs, beta, del_t, K, max_iter, tol, A_full_true)
     
     % SI_PARTIAL_OBS_INFERENCE
     % Implements weighted ALS with scale-drift correction and objective-based convergence.
@@ -9,7 +9,7 @@ function [A_hat, W_hat, Z_hat, hist] = PO_model1( ...
     W_true = A_full_true(1:N, N+1:end);
     S = (T-1) * N_proc;
     eps_val = 1e-8;
-
+    
     % ---------- Precompute Derivatives and Midpoints ----------
     dX_all = zeros(N, T-1, N_proc);
     X_mid_all = zeros(N, T-1, N_proc);
@@ -17,7 +17,7 @@ function [A_hat, W_hat, Z_hat, hist] = PO_model1( ...
         dX_all(:,:,pp) = diff(X_obs(:,:,pp), 1, 2) / del_t;
         X_mid_all(:,:,pp) = 0.5 * (X_obs(:,1:end-1,pp) + X_obs(:,2:end,pp));
     end
-
+    
     % ---------- Initialization ----------
     D = duplication_matrix(N);
     p = size(D,2);

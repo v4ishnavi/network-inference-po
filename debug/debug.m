@@ -10,7 +10,7 @@ run_id = 4;
 
 % Network Dimensions
 N_obs = 10;               % Observed nodes
-N_hidden = 3;             % Hidden nodes
+N_hidden = 2;             % Hidden nodes
 N_total = N_obs + N_hidden;
 K = N_hidden;             % Latent rank (Typically 1-3) 
 
@@ -28,7 +28,7 @@ init_mode = 'ls';         % 'ls' (recommended) or 'random'
 lambda = 1e-6;            % Ridge penalty for numerical stability 
 
 % Data Volume
-N_proc = 12;               % Number of independent SI processes
+N_proc = 8;               % Number of independent SI processes
 seed = 5;              % Fixed seed for reproducibility
 
 fprintf('=== SI DEBUGGING RUN ===\n');
@@ -70,7 +70,7 @@ end
 % This calls your EM/Alternating script
 fprintf('Starting PO_model1 iterations...\n');
 [A_hat, W_hat, Z_hat, hist] = PO_model1( ...
-    X_obs_all, beta, del_t, K, max_iter, tol, method, A_full, init_mode);
+    X_obs_all, beta, del_t, K, max_iter, tol, A_full);
 
 % save A_hat to results folder run_id
 A_hat_result = A_hat;
